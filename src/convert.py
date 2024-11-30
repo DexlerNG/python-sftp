@@ -1,17 +1,8 @@
 import configparser
-import pysftp
-import psycopg2.extras
 import pyarrow.parquet as pq
 import os
 
-from datetime import datetime as dt
-from zoho_bulk_write import create_bulk_write_jobs
-from zoho_file_upload import upload_file_to_zoho
-from zoho_job_status import check_job_status
-from utils import get_connection_2_database, generate_access_token, split_csv_by_rows
-from module_mapping2 import get_module_mapping_fields
-from update_flight_info import update_flight_records
-
+from utils import generate_access_token, split_csv_by_rows
 # Gets the full path to the directory this "main.py" file is contained in
 # Because it is reading from a virtual environment
 os_path = os.path.dirname(os.path.realpath(__file__))
