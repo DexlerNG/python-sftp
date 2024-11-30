@@ -1,29 +1,13 @@
-import configparser
 import pyarrow.parquet as pq
 import os
 
-from utils import generate_access_token, split_csv_by_rows
+from utils import split_csv_by_rows
 # Gets the full path to the directory this "main.py" file is contained in
 # Because it is reading from a virtual environment
 os_path = os.path.dirname(os.path.realpath(__file__))
 os.chdir(os_path)
 
 print(f'OS Path: {os_path}')
-
-# Initialize the config parser
-config = configparser.ConfigParser()
-
-# Read the config file
-config.read('config.ini')
-
-# Access the config values for SFTP
-sftpHost = config['credentials']['sftpHost']
-sftpPort = int(config['credentials']['sftpPort'])
-sftpUname = config['credentials']['sftpUname']
-sftpPassword = config['credentials']['sftpPassword']
-
-# conn = get_connection_2_database()
-access_token = generate_access_token()
 
 
 def convert_2_csv():
